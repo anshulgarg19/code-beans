@@ -1,3 +1,4 @@
+
 /*
 **link : https://www.codechef.com/problems/ONEKING
 */
@@ -21,7 +22,7 @@ int main(void){
 	while(t--){
 		int n;
 		gi(n);
-		int i,a,b,rightMax;
+		int i,a,b,rightMin;
 		PAIR p;
 		vector<PAIR > arr;
 		for(i=0;i<n;i++){
@@ -34,18 +35,18 @@ int main(void){
 
 		int count = 1;
 		p = arr[0];
-		rightMax = p.second;	//rightMax
+		rightMin = p.second;	//rightMin
 		for(i=1;i<n;i++){
 			p = arr[i];
-			if( p.first > rightMax )
+			if( p.first > rightMin )
 			{
 				count++;
-				rightMax = p.second;
+			
+				rightMin = p.second;
 			}
-			//else{
-			//	if(p.second > rightMax)
-					rightMax = p.second;
-			//}
+			else if(p.second < rightMin){
+				rightMin = p.second;
+			}
 		}
 		printf("%d\n",count);
 	}
